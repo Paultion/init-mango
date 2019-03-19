@@ -1,15 +1,17 @@
 {
   "name": "init-mango",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "description": "init Mango apps with no build configuration.",
+  "repository": "https://github.com/Paultion/init-mango",
   "license": "MIT",
   "engines": {
     "node": ">=4"
   },
   "files": [
     "index.js",
-    "initMango.js"
+    "initMango.js",
+    "init.js"
   ],
   "bin": {
     "init-mango": "./index.js"
