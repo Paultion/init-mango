@@ -86,6 +86,7 @@ const hiddenProgram = new commander.Command().option(
   .parse(process.argv);
 
 createApp(
+  projectName,
   program.verbose,
   program.scriptsVersion,
   program.useNpm,
@@ -94,6 +95,7 @@ createApp(
 
 function createApp(name, verbose, version, useNpm, template) {
 
+  console.log(name, verbose, version, useNpm, template)
   const root = path.resolve(name);
   const appName = path.basename(root);
 

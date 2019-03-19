@@ -1,6 +1,6 @@
 {
   "name": "init-mango",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "main": "index.js",
   "description": "init Mango apps with no build configuration.",
   "repository": "https://github.com/Paultion/init-mango",
