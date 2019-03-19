@@ -1,6 +1,6 @@
 {
   "name": "init-mango",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "index.js",
   "description": "init Mango apps with no build configuration.",
   "repository": "https://github.com/Paultion/init-mango",
@@ -11,7 +11,11 @@
   "files": [
     "index.js",
     "initMango.js",
-    "init.js"
+    "init.js",
+    "template/",
+    "yarn.lock",
+    "README.md",
+    ".gitignore"
   ],
   "bin": {
     "init-mango": "./index.js"
