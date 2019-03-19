@@ -26,7 +26,6 @@ module.exports = function(
   originalDirectory,
   template
 ) {
-
   const appPackage = require(path.join(appPath, 'package.json'));
   const useYarn = fs.existsSync(path.join(appPath, 'yarn.lock'));
 
@@ -49,7 +48,7 @@ module.exports = function(
     );
   }
 
-  const templatePath = path.resolve(originalDirectory, 'template');
+  const templatePath = template ? path.resolve(originalDirectory, template) : path.join(ownPath, 'template');
 
   if (fs.existsSync(templatePath)) {
     fs.copySync(templatePath, appPath);
@@ -109,7 +108,7 @@ module.exports = function(
   console.log(`Success! Created ${appName} at ${appPath}`);
   console.log('Inside that directory, you can run several commands:');
   console.log();
-  console.log(chalk.cyan(`  ${displayedCommand} start`));
+  console.log(chalk.cyan(`  ${displayedCommand} start:dev`));
   console.log('    Starts the development server.');
   console.log();
   console.log(
@@ -117,12 +116,6 @@ module.exports = function(
   );
   console.log('    Bundles the app into static files for production.');
   console.log();
-  console.log(chalk.cyan(`  ${displayedCommand} test`));
-  console.log('    Starts the test runner.');
-  console.log();
-  console.log(
-    chalk.cyan(`  ${displayedCommand} ${useYarn ? '' : 'run '}eject`)
-  );
   console.log(
     '    Removes this tool and copies build dependencies, configuration files'
   );

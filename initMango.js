@@ -15,11 +15,6 @@ const envinfo = require('envinfo');
 
 const packageJson = require('./package');
 
-const initPath = path.resolve(
-  process.cwd(),
-  'init.js',
-);
-
 let projectName;
 
 const program = new commander.Command(packageJson.name)
@@ -78,24 +73,15 @@ function printValidationResults(results) {
   }
 }
 
-const hiddenProgram = new commander.Command().option(
-    '--internal-testing-template <path-to-template>',
-    '(internal usage only, DO NOT RELY ON THIS) ' +
-      'use a non-standard application template'
-  )
-  .parse(process.argv);
-
 createApp(
   projectName,
   program.verbose,
   program.scriptsVersion,
   program.useNpm,
-  hiddenProgram.internalTestingTemplate,
+  path.resolve(__dirname, 'template'),
 );
 
 function createApp(name, verbose, version, useNpm, template) {
-
-  console.log(name, verbose, version, useNpm, template)
   const root = path.resolve(name);
   const appName = path.basename(root);
 
@@ -153,7 +139,7 @@ function createApp(name, verbose, version, useNpm, template) {
     }
   }
 
-  const init = require(initPath);
+  const init = require('./init');
 
   init(root, appName, verbose, originalDirectory, template);
 }
